@@ -5,3 +5,17 @@ __pycache__/
 build/
 dist/
 *.egg-info/
+
+# private files
+venv/
+.venv/
+
+# testing files
+tests/
+tests.py
+test.py
+
+# misc files
+docs/
+examples/
+.github/
