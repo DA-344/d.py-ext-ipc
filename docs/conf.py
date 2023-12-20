@@ -1,8 +1,8 @@
 import re
 
 project = "discord-ext-ipc"
-copyright = "2020-present, Ext-Creators"
-author = "Ext-Creators"
+copyright = "2023-present, Dev-Anony"
+author = "Dev-Anony"
 
 _version_regex = r"^version = ('|\")((?:[0-9]+\.)*[0-9]+(?:\.?([a-z]+)(?:\.?[0-9])?)?)\1$"
 
