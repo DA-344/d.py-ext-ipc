@@ -11,10 +11,9 @@ from discord.http import HTTPClient
 from discord.utils import setup_logging
 
 from discord.user import User
-from discord.guild import Guild, GuildChannel
-from discord.message import Message
+from discord.guild import Guild
+from discord.abc import GuildChannel, PrivateChannel
 from discord.threads import Thread
-from discord.channel import PrivateChannel
 
 from quart import Quart
 
@@ -39,7 +38,7 @@ class IPC:
         A already instated Quart App that the IPC will use.
     """
 
-    def __init__(self, client: Client, *, host: str = 'localhost', port: int = 8080, debug: bool = False, app: Optional[Quart] = None) -> None:
+    def __init__(self, client: Client, *, host: str = '127.0.0.1', port: int = 8000, debug: bool = False, app: Optional[Quart] = None) -> None:
         self.client: Client = client
         self.host: str = host
         self.port: int = port
@@ -104,7 +103,7 @@ class IPC:
 
 
         try:
-            asyncio.create_task(runner(), name='IPC server runner')
+            asyncio.run(runner())
         except KeyboardInterrupt:
             return # asyncio handles this
         

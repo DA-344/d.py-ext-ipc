@@ -1,7 +1,7 @@
-from .client import Client
+from .client import IPC
 
 __all__ = (
-    'Client'
+    'IPC'
 )
 
 version = '1.0.0'
