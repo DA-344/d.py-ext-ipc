@@ -137,3 +137,30 @@ class IPC:
 
         fetcher = getattr(self.client, f'fetch_{obj}')
         return await fetcher(id)
+    
+    async def get_or_fetch(self, obj: Literal['guild', 'channel', 'user'], id: int) -> Optional[Union[GuildChannel, Thread, PrivateChannel, User, Guild]]:
+        """|coro|
+        
+        Gets or fetches the given object with id X.
+
+        This tries to get the object, if it is `None`,
+        then it tries to fetch it.
+
+        Parameters
+        ----------
+        obj: :class:`str`
+            The object to get or fetch
+        id: :class:`int`
+            The id of the object to get or fetch
+        """
+
+        try:
+            value = self.get(obj, id)
+
+            if not value:
+                value = await self.fetch(obj, id)
+
+            return value
+        
+        except Exception as e:
+            self._log.error('ignoring exception in get_or_fetch:\n%s', e)
