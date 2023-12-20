@@ -66,7 +66,7 @@ setuptools.setup(
     extras_require=extras_require,
     install_requires=install_requires,
     license="MIT",
-    name="discord-ext-ipc",
+    name="dpy-ext-ipc",
     packages=packages,
     project_urls=project_urls,
     python_requires=">=3.5.3",
