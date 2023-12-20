@@ -30,7 +30,7 @@ class IPC:
     host: :class:`str`
         The host the web-app side will listen to. Defaults to `localhost`
     port: :class:`int`
-        The port the web-app side will listen to. Defaults to `8080`
+        The port the web-app side will listen to. Defaults to `8000`
     debug: :class:`bool`
         If the console should autorestart the web server when changes are made.
         Defaults to `False`
